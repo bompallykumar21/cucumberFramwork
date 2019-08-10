@@ -1,18 +1,32 @@
 package pages;
 
-import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import domainObjects.loginCred;
 import testBase.TestBase;
 
 public class RediffPage extends TestBase{
+    
+    public RediffPage(){
+        PageFactory.initElements(driver, this);
+    }
+    
+	  @FindBy(xpath = ".//*[@id='login1']")
+	    public WebElement userName;
+
+	
+	public WebElement getUserName() {
+		return userName;
+	}
 
 	public void EnterLoginCredentials(loginCred logCred){
-		driver.findElement(By.xpath(".//*[@id='login1']")).sendKeys(logCred.getUsername());
+		getUserName().sendKeys(logCred.getUsername());
 	}
 	
 	public void EnterLoginCredentialsSecond(loginCred logCred){
-		driver.findElement(By.xpath(".//*[@id='login1']")).clear();
-		driver.findElement(By.xpath(".//*[@id='login1']")).sendKeys(logCred.getUserNameSecond());
+		getUserName().clear();
+		getUserName().sendKeys(logCred.getUserNameSecond());
 	}
 }
