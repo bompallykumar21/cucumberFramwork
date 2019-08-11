@@ -11,6 +11,7 @@ public class TestBase {
 	public void launchBrowsers() {
 		System.setProperty("webdriver.chrome.driver", ".\\Drivers\\chromedriver.exe");
 		driver=new ChromeDriver();
-
 	}
+	
+	
 }

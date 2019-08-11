@@ -3,6 +3,8 @@ package stepDefinations;
 import java.util.Iterator;
 import java.util.List;
 
+import org.junit.Assert;
+
 import cucumber.api.java.en.When;
 import domainObjects.PetDetails;
 import domainObjects.loginCred;
@@ -33,5 +35,16 @@ public class TestDataObjectStepDef {
 	        }
 	        RediffPage rediffPage=new RediffPage();
 	        rediffPage.EnterLoginCredentialsSecond(logCred);
+	}
+	
+	@When("^executing script using smokeTest$")
+	public void executing_script_using_smokeTest() throws Throwable {
+		 System.out.println("smokeTest is launched");
+		 Assert.assertTrue(false);
+	}
+
+	@When("^executing script using regressionTest$")
+	public void executing_script_using_regressionTest() throws Throwable {
+	 System.out.println("regressionTest is launched");
 	}
 }
